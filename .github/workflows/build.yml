@@ -22,10 +22,10 @@ jobs:
         run: echo "MACOSX_DEPLOYMENT_TARGET=11.0" >> $GITHUB_ENV
 
       # https://github.com/orgs/community/discussions/27086
-      # - name: Set lowercase repository
-      #   run: echo "REPO_LC=${REPO,,}" >> $GITHUB_ENV
-      #   env:
-      #     REPO: ${{ github.repository }}
+      - name: Set lowercase repository
+        run: echo "REPO_LC=${REPO,,}" >> $GITHUB_ENV
+        env:
+          REPO: ${{ github.repository }}
 
       - name: Cache macos dependencies
         if: runner.os == 'macOS'
@@ -63,7 +63,7 @@ jobs:
           CIBW_BUILD: "cp312-*"
           CIBW_SKIP: "*i686 *ppc64le *s390x *win32* *musllinux*"
           CIBW_MANYLINUX_X86_64_IMAGE: >-
-            ghcr.io/bogusscopus/manylinux-deps:latest
+            ghcr.io/${{ env.REPO_LC }}/manylinux-deps:latest
           CIBW_TEST_REQUIRES: pytest
           CIBW_TEST_COMMAND: "cd {project} && pytest {project}/tests"
 

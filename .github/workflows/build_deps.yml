@@ -33,4 +33,4 @@ jobs:
           context: .
           file: docker/deps.dockerfile
           push: true
-          tags: ghcr.io/bogusscopus/manylinux-deps:latest
+          tags: ghcr.io/${{ env.REPO_LC }}/manylinux-deps:latest
