@@ -23,6 +23,7 @@ jobs:
 
       # https://github.com/orgs/community/discussions/27086
       - name: Set lowercase repository
+        if: runner.os == 'Linux'
         run: echo "REPO_LC=${REPO,,}" >> $GITHUB_ENV
         env:
           REPO: ${{ github.repository }}
