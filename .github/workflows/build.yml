@@ -57,7 +57,7 @@ jobs:
         env:
           CIBW_BUILD: "cp312-*"
           CIBW_SKIP: "*i686 *ppc64le *s390x *win32* *musllinux*"
-          CIBW_MANYLINUX_X86_64_IMAGE: >
+          CIBW_MANYLINUX_X86_64_IMAGE: >-
             ghcr.io/bogusscopus/manylinux-deps:latest
           CIBW_TEST_REQUIRES: pytest
           CIBW_TEST_COMMAND: "cd {project} && pytest {project}/tests"
