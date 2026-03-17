@@ -31,6 +31,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: docker/manylinux_deps.Dockerfile
+          file: docker/deps.dockerfile
           push: true
           tags: ghcr.io/bogusscopus/manylinux-deps:latest
